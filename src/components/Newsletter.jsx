@@ -17,12 +17,7 @@ function Newsletter({ setPage }) {
           Únete a una comunidad de desarrolladores, creadores y entusiastas de la tecnología.
         </p>
 
-        {/* ZONA DE IMÁGENES */}
-        <div className="newsletter-images">
-          <img src="/src/images/nw2.jpg" alt="Tecnología" />
-          <img src="/src/images/nw1.jpg" alt="Código" />
-          <img src="/src/images/nw3.jpg" alt="Innovación" />
-        </div>
+
 
         {/* TEXTO LARGO Y PROFESIONAL */}
         <p className="newsletter-description">
