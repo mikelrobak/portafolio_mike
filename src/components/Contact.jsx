@@ -1,13 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 
 function Contact({ setPage }) {
+  const [sent, setSent] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSent(true);
+
+    // Opcional: borrar mensaje después de unos segundos
+    setTimeout(() => setSent(false), 3000);
+  };
+
   return (
     <section className="contact-section">
       <div className="section-inner glass">
         <h2 className="section-title">Contacto</h2>
 
         <div className="contact-grid">
-          <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
+          <form className="contact-form" onSubmit={handleSubmit}>
             <label className="field">
               <span>Nombre</span>
               <input type="text" placeholder="Tu nombre" required />
@@ -24,9 +34,15 @@ function Contact({ setPage }) {
             </label>
 
             <div className="form-actions">
-              <button className="btn-primary" type="submit">Enviar</button>
+              <button className="btn-ghost" type="submit">Enviar</button>
               <button className="btn-ghost" type="button" onClick={() => setPage("home")}>Cancelar</button>
             </div>
+
+            {sent && (
+              <p className="success-message" style={{ color: "limegreen", marginTop: "10px" }}>
+                ✅ ¡Mensaje enviado correctamente!
+              </p>
+            )}
           </form>
 
           <aside className="contact-info">
